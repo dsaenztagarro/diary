@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// document.addEventListener("turbolinks:load", ready);
+
+// document.addEventListener("turbolinks:load", function() {
+//   console.log("turbolinks:load!");
+// });

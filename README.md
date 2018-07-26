@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## TODO
+
+- [ ] https://guides.rubyonrails.org/form_helpers.html#customizing-form-builders
+- [ ] Consider using: https://github.com/twbs/bootstrap-rubygem

@@ -5,11 +5,12 @@ Rails.application.routes.draw do
     get :login, on: :collection
   end
 
-  resources :exercises, only: :index
+  resources :workout_executions, only: :new
 
   root to: "users#login"
-  get "/signin"                  => "sessions#new", as: :signin
-  get "/signout"                 => "sessions#destroy", as: :signout
-  get "/auth/:provider/callback" => "sessions#create"
-  get "/auth/failure"            => "sessions#failure"
+  get "/signin"                   => "sessions#new", as: :signin
+  get "/signout"                  => "sessions#destroy", as: :signout
+  get "/auth/:provider/callback"  => "sessions#create" # github provider
+  post "/auth/:provider/callback" => "sessions#create" # developer provider
+  get "/auth/failure"             => "sessions#failure"
 end

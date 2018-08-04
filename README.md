@@ -23,6 +23,10 @@ Things you may want to cover:
 
 * ...
 
+## Running System tests
+
+Use headless chrome driver by defining shell environment variable `HEADLESS_CHROME`.
+
 ## TODO
 
 - [ ] https://guides.rubyonrails.org/form_helpers.html#customizing-form-builders

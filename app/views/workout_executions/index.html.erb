@@ -10,22 +10,37 @@
         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
       </div>
-      <h4 class="panel-title">Add workout execution</h4>
+      <h4 class="panel-title">Workout executions</h4>
     </div>
     <!-- end panel-heading -->
     <!-- begin panel-body -->
     <div class="panel-body">
-      <%= form_for @workout_execution do |f| %>
-        <%= f.hidden_field :workout_id %>
-        <dl>
-          <%= f.fields_for :exercise_executions do |ff| %>
-            <%= ff.hidden_field :exercise_id %>
-            <dt class="text-inverse"><%= ff.object.name %></dt>
-            <dd>A description list...</dd>
-          <% end %>
-        </dl>
-        <%= f.submit "Create", class: "btn btn-sm btn-primary m-r-5" %>
+
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %> fade show">
+          <span class="close" data-dismiss="alert">×</span>
+          <%= value %>
+        </div>
       <% end %>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th nowrap="">Workout name</th>
+              <th nowrap="">Created at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @workout_executions.each do |we| %>
+              <tr>
+                <td><%= we.name %></td>
+                <td><%= we.created_at %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
     <!-- end panel-body -->
   </div>

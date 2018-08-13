@@ -31,3 +31,6 @@ Use headless chrome driver by defining shell environment variable `HEADLESS_CHRO
 
 - [ ] https://guides.rubyonrails.org/form_helpers.html#customizing-form-builders
 - [ ] Consider using: https://github.com/twbs/bootstrap-rubygem
+
+
+file:///Users/dsaenz/Code/Ruby/color_admin_theme/vendor/color_admin_v4.1.1/admin/template/template_html/ui_general.html

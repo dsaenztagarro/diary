@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  if Rails.env.production?
-    skip_create_action :verify_authenticity_token, only: :create
+  if Rails.env.development?
+    skip_before_action :verify_authenticity_token, only: :create
   end
 
   def new

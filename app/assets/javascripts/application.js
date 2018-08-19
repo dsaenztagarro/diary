@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require wrap_bootstrap
 //= require_tree .
 
 // document.addEventListener("turbolinks:load", ready);

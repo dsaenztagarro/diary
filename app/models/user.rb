@@ -12,6 +12,7 @@ class User < ApplicationRecord
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth.dig("info", "name") || ""
+      user.avatar_url = auth.dig("info", "image") || ""
     end
   end
 end

@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_175220) do
     t.string "name"
     t.string "provider"
     t.string "uid"
+    t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

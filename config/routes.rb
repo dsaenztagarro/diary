@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get :login, on: :collection
   end
 
-  resources :workout_executions, only: [:index, :new, :create]
+  resources :workouts, only: [:index, :new, :create]
 
   root to: "users#login"
   get "/signin"                   => "sessions#new", as: :signin

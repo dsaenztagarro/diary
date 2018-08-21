@@ -12,8 +12,8 @@ User.create!(name: "dsaenz", provider: "developer", uid: "dsaenz@test.com", avat
 
 ExerciseType.create!([{ name: "Lumbar spine movement" }, { name: "The plank" }])
 
-workout = Workout.create!(name: "The pain-free cyclist core exercises")
+routine = WorkoutRoutine.create!(name: "The pain-free cyclist core exercises")
 
 ExerciseType.all.each_with_index do |exercise_type, index|
-  workout.exercises.create!(exercise_type: exercise_type, order: index, sets: 3)
+  routine.workout_routine_exercises.create!(exercise_type: exercise_type, order: index, sets: 3)
 end

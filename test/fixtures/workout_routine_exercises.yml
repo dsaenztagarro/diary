@@ -2,7 +2,7 @@
 
 one:
   id: 1
-  workout_id: 1
+  workout_routine_id: 1
   exercise_type_id: 1
   order: 1
   sets: 1
@@ -12,7 +12,7 @@ one:
 
 two:
   id: 2
-  workout_id: 1
+  workout_routine_id: 1
   exercise_type_id: 2
   order: 2
   sets: 3

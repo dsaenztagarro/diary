@@ -8,10 +8,4 @@ class UsersController < ApplicationController
       render layout: false
     end
   end
-
-  private
-
-    def after_sign_in_path
-      new_workout_execution_path
-    end
 end

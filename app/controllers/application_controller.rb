@@ -33,4 +33,8 @@ class ApplicationController < ActionController::Base
         redirect_to root_url, alert: "You need to sign in for access to this page."
       end
     end
+
+    def after_sign_in_path
+      new_workout_path
+    end
 end

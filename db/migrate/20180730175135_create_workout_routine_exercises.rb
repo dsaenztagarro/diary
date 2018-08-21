@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class CreateExercises < ActiveRecord::Migration[5.2]
+class CreateWorkoutRoutineExercises < ActiveRecord::Migration[5.2]
   def change
-    create_table :exercises do |t|
-      t.belongs_to :workout
+    create_table :workout_routine_exercises do |t|
+      t.belongs_to :workout_routine
       t.belongs_to :exercise_type
       t.integer :order
       t.integer :sets

@@ -29,10 +29,4 @@ class SessionsController < ApplicationController
   def failure
     redirect_to root_url, alert: "Authentication error: #{params[:message].humanize}"
   end
-
-  private
-
-    def after_sign_in_path
-      new_workout_execution_path
-    end
 end

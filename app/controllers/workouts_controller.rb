@@ -7,7 +7,7 @@ class WorkoutsController < ApplicationController
 
   def new
     routine = WorkoutRoutine.first
-    @workout = routine.build_workout
+    @workout = Workout.from(routine)
   end
 
   def create

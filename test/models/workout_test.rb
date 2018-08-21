@@ -3,12 +3,12 @@
 require "test_helper"
 
 class WorkoutTest < ActiveSupport::TestCase
-  test "#build_workout_execution" do
-    workout = Workout.first
+  test ".from" do
+    routine = WorkoutRoutine.first
 
-    we = workout.build_workout_execution
+    workout = Workout.from(routine)
 
-    assert_instance_of WorkoutExecution, we
-    assert_equal 2, we.exercise_executions.size
+    assert_instance_of Workout, workout
+    assert_equal 2, workout.workout_exercises.size
   end
 end

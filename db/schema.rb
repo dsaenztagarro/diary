@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_175220) do
+ActiveRecord::Schema.define(version: 2018_08_22_190200) do
 
   create_table "exercise_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.bigint "metadata_group_id"
+    t.index ["metadata_group_id"], name: "index_exercise_types_on_metadata_group_id"
+  end
+
+  create_table "metadata", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "metadata_key_id"
+    t.bigint "workout_exercise_id"
+    t.string "value"
+    t.index ["metadata_key_id"], name: "index_metadata_on_metadata_key_id"
+    t.index ["workout_exercise_id"], name: "index_metadata_on_workout_exercise_id"
+  end
+
+  create_table "metadata_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "metadata_keys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "metadata_group_id"
+    t.index ["metadata_group_id"], name: "index_metadata_keys_on_metadata_group_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,4 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_175220) do
     t.index ["workout_routine_id"], name: "index_workouts_on_workout_routine_id"
   end
 
+  add_foreign_key "metadata", "metadata_keys"
+  add_foreign_key "metadata", "workout_exercises"
+  add_foreign_key "metadata_keys", "metadata_groups"
 end

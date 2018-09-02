@@ -1,0 +1,20 @@
+<%= form_for workout do |f| %>
+  <%= f.hidden_field :workout_routine_id %>
+  <dl>
+    <%= f.fields_for :workout_exercises do |ff| %>
+      <%= ff.hidden_field :workout_routine_exercise_id %>
+
+      <dt class="text-inverse"><%= ff.object.name %></dt>
+      <dd>A description list...</dd>
+
+      <%= ff.fields_for :metadatums do |fff| %>
+        <%= fff.hidden_field :metadata_key_id %>
+        <%= fff.label :value, fff.object.name %>
+        <%= fff.text_field :value %>
+      <% end %>
+    <% end %>
+  </dl>
+  <%= f.submit workout.new_record? ? "Add workout" : "Update workout", class: "btn btn-sm btn-primary m-r-5" %>
+  <%= " or " %>
+  <%= link_to "cancel", workouts_path %>
+<% end %>

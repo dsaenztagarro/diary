@@ -10,7 +10,10 @@
 
 User.create!(name: "dsaenz", provider: "developer", uid: "dsaenz@test.com", avatar_url: "/assets/samples/user_avatar.jpg")
 
-ExerciseType.create!([{ name: "Lumbar spine movement" }, { name: "The plank" }])
+metadata_group = MetadataGroup.create!(name: "Plank exercise")
+metadata_group.metadata_keys.create!(name: "Duration")
+
+ExerciseType.create!([{ name: "Lumbar spine movement" }, { name: "The plank", metadata_group: metadata_group }])
 
 routine = WorkoutRoutine.create!(name: "The pain-free cyclist core exercises")
 

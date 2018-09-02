@@ -2,9 +2,4 @@
 
 one:
   id: 1
-  name: Lumbar spine movement
-
-two:
-  id: 2
-  name: The plank
-  metadata_group_id: 1
+  name: Plank exercises

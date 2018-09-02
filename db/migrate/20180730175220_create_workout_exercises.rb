@@ -8,5 +8,7 @@ class CreateWorkoutExercises < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :workout_exercises, [:workout_id, :workout_routine_exercise_id], unique: true
   end
 end

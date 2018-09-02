@@ -3,9 +3,9 @@
 one:
   id: 1
   workout_routine_id: 1
-  created_at: <%= DateTime.new(2018, 8, 9, 13, 30) %>
+  created_at: <%= Time.zone.local(2018, 1, 1, 13, 30) %>
 
 two:
   id: 2
   workout_routine_id: 1
-  created_at: <%= DateTime.new(2018, 8, 12, 21, 45) %>
+  created_at: <%= Time.zone.local(2018, 2, 15, 21, 45) %>

@@ -11,14 +11,14 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    routine = WorkoutRoutine.first
-    @workout = Workout.from(routine)
+    planned_workout = PlannedWorkout.first
+    @workout = Workout.from(planned_workout)
   end
 
   def create
     @workout = Workout.new(allowed_params)
     if @workout.save
-      flash[:success] = "The workout was created with success"
+      flash[:notice] = "The workout was created with success"
       redirect_to workouts_path
     else
       render :new
@@ -29,7 +29,7 @@ class WorkoutsController < ApplicationController
     @workout.assign_attributes(allowed_params)
 
     if @workout.save
-      flash[:success] = "The workout was updated with success"
+      flash[:notice] = "The workout was updated with success"
       redirect_to workouts_path
     else
       render :edit
@@ -41,10 +41,12 @@ class WorkoutsController < ApplicationController
     def allowed_params
       params.require(:workout).permit(
         :id,
-        :workout_routine_id,
-        workout_exercises_attributes: [
-          :workout_routine_exercise_id,
-          metadatums_attributes: [:metadata_key_id, :value]
+        :planned_workout_id,
+        exercises_attributes: [
+          :id,
+          :planned_exercise_id,
+          :order,
+          metadatums_attributes: [:id, :metadata_key_id, :value]
         ]
       )
     end

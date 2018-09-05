@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# Workout 1 exercises
+
+one:
+  id: 1
+  workout_id: 1,
+  planned_exercise_id: 1
+  order: 0
+
+two:
+  id: 2
+  workout_id: 1,
+  planned_exercise_id: 2
+  order: 1
+
+# Workout 2 exercises
+
+three:
+  id: 3
+  workout_id: 2,
+  planned_exercise_id: 1
+  order: 0
+
+four:
+  id: 4
+  workout_id: 2,
+  planned_exercise_id: 2
+  order: 1
+
+five:
+  id: 5
+  workout_id: 2,
+  planned_exercise_id: 3
+  order: 2

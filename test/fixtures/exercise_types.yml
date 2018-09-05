@@ -8,3 +8,8 @@ two:
   id: 2
   name: The plank
   metadata_group_id: 1
+
+three:
+  id: 3
+  name: Side plank
+  metadata_group_id: 1

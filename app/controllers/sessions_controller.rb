@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     user = User.find_with_omniauth(auth) || User.create_with_omniauth(auth)
     reset_session
     session[:user_id] = user.id
-    redirect_to after_sign_in_path, notice: "Signed in!"
+    redirect_to after_sign_in_path
   end
 
   def destroy

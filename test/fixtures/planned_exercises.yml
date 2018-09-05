@@ -2,20 +2,27 @@
 
 one:
   id: 1
-  workout_routine_id: 1
+  planned_workout_id: 1
   exercise_type_id: 1
-  order: 1
+  order: 0
   sets: 1
   repetitions: 1
-  tempo: 3/3
   rest: N/A
 
 two:
   id: 2
-  workout_routine_id: 1
+  planned_workout_id: 1
   exercise_type_id: 2
+  order: 1
+  sets: 3
+  repetitions: 1
+  rest: N/A
+
+three:
+  id: 3
+  planned_workout_id: 1
+  exercise_type_id: 3
   order: 2
   sets: 3
   repetitions: 1
-  tempo: N/A
   rest: N/A

@@ -1,17 +1,34 @@
 <%= form_for workout do |f| %>
-  <%= f.hidden_field :workout_routine_id %>
-  <dl>
-    <%= f.fields_for :workout_exercises do |ff| %>
-      <%= ff.hidden_field :workout_routine_exercise_id %>
+  <%= f.hidden_field :planned_workout_id %>
 
-      <dt class="text-inverse"><%= ff.object.name %></dt>
-      <dd>A description list...</dd>
+  <dl class="model-exercises">
+    <%= f.fields_for :exercises do |ff| %>
+      <% exercise = ff.object %>
 
-      <%= ff.fields_for :metadatums do |fff| %>
-        <%= fff.hidden_field :metadata_key_id %>
-        <%= fff.label :value, fff.object.name %>
-        <%= fff.text_field :value %>
-      <% end %>
+      <% exercise_index = ff.options[:child_index] %>
+
+      <div id="exercise_<%= exercise_index %>">
+        <%= ff.hidden_field :id %>
+        <%= ff.hidden_field :planned_exercise_id %>
+        <%= ff.hidden_field :order %>
+
+        <dt class="text-inverse"><%= exercise.name %></dt>
+        <dd>A description list...</dd>
+
+        <%= ff.fields_for :metadatums do |fff| %>
+          <%= fff.hidden_field :id %>
+          <%= fff.hidden_field :metadata_key_id %>
+
+          <% metadatum_index = fff.options[:child_index] %>
+
+          <div class="form-group row m-b-15">
+            <%= fff.label :value, fff.object.name, class: "col-form-label model-metadatum-label-#{metadatum_index}" %>
+            <div class="col-md-9">
+              <%= fff.text_field :value, class: "form-control model-metadatum-value-#{metadatum_index}" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </dl>
   <%= f.submit workout.new_record? ? "Add workout" : "Update workout", class: "btn btn-sm btn-primary m-r-5" %>

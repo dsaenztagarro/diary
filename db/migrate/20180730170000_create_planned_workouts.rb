@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateWorkoutRoutines < ActiveRecord::Migration[5.2]
+class CreatePlannedWorkouts < ActiveRecord::Migration[5.2]
   def change
-    create_table :workout_routines do |t|
+    create_table :planned_workouts do |t|
       t.string :name
 
       t.timestamps

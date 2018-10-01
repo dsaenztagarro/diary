@@ -1,0 +1,24 @@
+language: ruby
+rvm:
+- 2.5.1
+cache: bundler
+sudo: true
+before_install:
+- gem update --system
+- gem --version
+before_script:
+- mysql -e 'CREATE DATABASE diary_test;'
+- cp config/database.travis.yml config/database.yml
+script:
+- export TRAVIS=true
+- export RACK_ENV=test
+- bin/rails db:migrate --trace
+- bin/rails db:test:prepare
+- bin/rails test
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client

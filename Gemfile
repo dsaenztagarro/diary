@@ -41,7 +41,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "omniauth"
 gem "omniauth-github"
 
-gem "wrap-bootstrap", path: "~/Code/Ruby/wrap-bootstrap"
+gem "wrap-bootstrap", git: "git@github.com:dsaenztagarro/wrap-bootstrap.git"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
